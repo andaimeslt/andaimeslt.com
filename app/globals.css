@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest:      #1B3B2F;
+  --forest-mid:  #2D5F4C;
+  --brand-bg:    #F4F6F5;
+  --brand-text:  #0F1B16;
+  --brand-muted: #5A6B65;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--brand-text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hero dot-grid pattern */
+.hero-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Section wave separator */
+.wave-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* CookieConsent v3 brand overrides */
+#cc-main {
+  --cc-font-family:                      var(--font-inter), system-ui, sans-serif;
+  --cc-modal-border-radius:              .75rem;
+  --cc-btn-border-radius:                .5rem;
+  --cc-bg:                               #F4F6F5;
+  --cc-primary-color:                    #0F1B16;
+  --cc-secondary-color:                  #5A6B65;
+  --cc-btn-primary-bg:                   #1B3B2F;
+  --cc-btn-primary-color:                #FFFFFF;
+  --cc-btn-primary-border-color:         #1B3B2F;
+  --cc-btn-primary-hover-bg:             #2D5F4C;
+  --cc-btn-primary-hover-color:          #FFFFFF;
+  --cc-btn-primary-hover-border-color:   #2D5F4C;
+  --cc-btn-secondary-bg:                 transparent;
+  --cc-btn-secondary-color:              #1B3B2F;
+  --cc-btn-secondary-border-color:       #1B3B2F;
+  --cc-btn-secondary-hover-bg:           #1B3B2F;
+  --cc-btn-secondary-hover-color:        #FFFFFF;
+  --cc-btn-secondary-hover-border-color: #1B3B2F;
+  --cc-toggle-on-bg:                     #1B3B2F;
+  --cc-toggle-off-bg:                    #9CA3AF;
+  --cc-toggle-on-knob-bg:                #FFFFFF;
+  --cc-overlay-bg:                       rgba(15, 27, 22, 0.5);
+  --cc-separator-border-color:           #E5E7EB;
+  --cc-cookie-category-block-bg:         #FFFFFF;
+  --cc-cookie-category-block-border:     #E5E7EB;
+  --cc-link-color:                       #2D5F4C;
+}
