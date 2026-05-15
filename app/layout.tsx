@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Manrope } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -19,6 +20,7 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://andaimeslt.com'),
   title: 'Andaimes LT — Aluguer de andaimes em Braga e distrito',
   description:
     'Aluguer de andaimes europeus, modulares e torres móveis em Braga e todo o distrito. Transporte e montagem certificada incluídos. Resposta em 2 horas, entrega em 24h.',
@@ -66,6 +68,20 @@ const jsonLd = {
   },
 }
 
+function PreLaunchBanner() {
+  return (
+    <div className="fixed top-0 inset-x-0 z-[60] bg-forest border-b border-white/10 text-white text-center leading-tight px-4 py-2 sm:py-2.5">
+      <span className="sm:hidden text-xs">
+        🚧 Pré-lançamento · <strong>20% desconto</strong> ao reservar
+      </span>
+      <span className="hidden sm:inline text-sm">
+        🚧 Em pré-lançamento — operação arranca a 30 de Junho 2026. Reserve já o seu lugar com{' '}
+        <strong>20% de desconto</strong>.
+      </span>
+    </div>
+  )
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt">
@@ -74,13 +90,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Consent Mode v2 defaults — must run before gtag.js loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'wait_for_update': 500
+              });
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${manrope.variable} font-sans antialiased`}>
+        <PreLaunchBanner />
         <Header />
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
         <CookieBanner />
+
+        {/* GA4 — loads after hydration, respects Consent Mode defaults set in <head> */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PPXBTDJ82V"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PPXBTDJ82V', { anonymize_ip: true });
+          `}
+        </Script>
       </body>
     </html>
   )

@@ -46,21 +46,23 @@ function Hero() {
 
         {/* H1 */}
         <h1 className="font-heading font-800 text-4xl sm:text-5xl lg:text-6xl text-white leading-tight max-w-2xl mb-6">
-          Andaimes para a sua obra.{' '}
-          <em className="not-italic text-white/75">Sem complicações.</em>
+          Andaimes LT em breve em Braga.{' '}
+          <em className="not-italic text-white/75">20% de desconto para os primeiros clientes.</em>
         </h1>
 
         {/* Subtitle */}
         <p className="text-white/70 text-lg max-w-xl leading-relaxed mb-8">
-          Aluguer flexível por dias e por metros, com transporte e montagem certificada incluídos.
-          Em todo o distrito de Braga.
+          Estamos a preparar o lançamento da Andaimes LT — aluguer flexível de andaimes em Braga e
+          todo o distrito. Reserve já o seu lugar e garanta 20% de desconto na primeira obra.
         </p>
 
         {/* Guarantee banner */}
         <div className="inline-flex items-start gap-3 bg-white/10 border border-white/20 rounded-xl px-5 py-4 mb-8 max-w-lg">
           <CheckIcon className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
           <span className="text-white/90 text-sm leading-relaxed">
-            <strong className="text-white">Resposta em menos de 2 horas</strong> · Entrega em 24h em Braga, 48h no distrito
+            Operação prevista para{' '}
+            <strong className="text-white">30 de Junho 2026</strong>{' '}
+            · Lugares limitados para o desconto de lançamento
           </span>
         </div>
 
@@ -74,10 +76,10 @@ function Hero() {
               <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" />
               </svg>
-              Pedir orçamento
+              Reservar lugar com 20% desconto
             </a>
             <span className="text-white/50 text-xs mt-2 pl-1">
-              ✓ Sem mínimo de aluguer · Por dias ou semanas
+              ✓ Sem compromisso · Cancelamento livre · Aviso por email quando arrancarmos
             </span>
           </div>
           <a
@@ -195,23 +197,23 @@ function Equipamentos() {
 const PASSOS = [
   {
     n: '1',
-    title: 'Pedido',
-    desc: 'Indique tipo de andaime, metros aproximados e datas. Em menos de 2 horas tem orçamento.',
+    title: 'Reserva',
+    desc: 'Indique o tipo de andaime e detalhes da sua obra prevista. Garanta o seu lugar na lista de espera com 20% desconto.',
   },
   {
     n: '2',
     title: 'Confirmação',
-    desc: 'Aceita o orçamento e agendamos a entrega na data que precisa.',
+    desc: 'Receba confirmação da sua reserva por email com o seu código de desconto.',
   },
   {
     n: '3',
-    title: 'Entrega e Montagem',
-    desc: 'Levamos o material à obra e montamos com pessoal certificado.',
+    title: 'Aviso de lançamento',
+    desc: 'Quando arrancarmos a 30 de Junho, contactamos-lo diretamente para coordenar a entrega.',
   },
   {
     n: '4',
-    title: 'Recolha',
-    desc: 'No fim do aluguer, recolhemos tudo. Caução pequena reembolsável.',
+    title: 'Entrega e Montagem',
+    desc: 'Após o lançamento, levamos o material à obra na data combinada com montagem certificada incluída.',
   },
 ]
 
@@ -290,6 +292,9 @@ function PorqueNos() {
           <h2 className="font-heading font-800 text-3xl md:text-4xl text-white">
             Porquê escolher-nos
           </h2>
+          <p className="text-white/60 mt-4 text-base">
+            Quando arrancarmos a 30 de Junho, esta é a nossa proposta:
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -419,72 +424,68 @@ function Contacto() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
-              ),
-              label: 'Telefone',
-              value: '+351 913 517 713',
-              href: 'tel:+351913517713',
-            },
-            {
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-              ),
-              label: 'WhatsApp',
-              value: '+351 913 517 713',
-              href: 'https://wa.me/351913517713?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20de%20andaimes',
-            },
-            {
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                </svg>
-              ),
-              label: 'Email',
-              value: 'geral@andaimeslt.com',
-              href: 'mailto:geral@andaimeslt.com',
-            },
-            {
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
-                </svg>
-              ),
-              label: 'Horário',
-              value: 'Seg–Sex, 8h–18h',
-              href: null,
-            },
-          ].map(({ icon, label, value, href }) => (
-            <div key={label} className="bg-white/10 rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mx-auto mb-4 text-white">
-                {icon}
-              </div>
-              <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">{label}</p>
-              {href ? (
-                <a
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-white font-semibold text-sm hover:text-white/80 transition-colors"
-                >
-                  {value}
-                </a>
-              ) : (
-                <p className="text-white font-semibold text-sm">{value}</p>
-              )}
+          {/* Telefone */}
+          <div className="bg-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mx-auto mb-4 text-white">
+              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
             </div>
-          ))}
+            <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Telefone</p>
+            <p className="text-white/70 text-sm leading-relaxed">
+              Disponível a partir de 30 de Junho 2026<br />
+              <span className="text-white/50 text-xs">Por agora, use o formulário acima</span>
+            </p>
+          </div>
+
+          {/* WhatsApp */}
+          <div className="bg-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mx-auto mb-4 text-white">
+              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </div>
+            <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">WhatsApp</p>
+            <a
+              href="https://wa.me/351913517713?text=Ol%C3%A1%2C%20gostaria%20de%20me%20inscrever%20na%20lista%20de%20espera%20do%20lan%C3%A7amento%20da%20Andaimes%20LT"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white font-semibold text-sm hover:text-white/80 transition-colors"
+            >
+              +351 913 517 713
+            </a>
+          </div>
+
+          {/* Email */}
+          <div className="bg-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mx-auto mb-4 text-white">
+              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+            </div>
+            <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Email</p>
+            <a
+              href="mailto:geral@andaimeslt.com"
+              className="text-white font-semibold text-sm hover:text-white/80 transition-colors"
+            >
+              geral@andaimeslt.com
+            </a>
+          </div>
+
+          {/* Horário */}
+          <div className="bg-white/10 rounded-2xl p-6 text-center">
+            <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mx-auto mb-4 text-white">
+              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+              </svg>
+            </div>
+            <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Disponibilidade</p>
+            <p className="text-white font-semibold text-sm">Resposta a inscrições em 24h em dias úteis</p>
+          </div>
         </div>
 
         <p className="text-center text-white/40 text-sm mt-8">
-          Morada: Braga, Portugal &nbsp;·&nbsp;{' '}
-          <span className="italic">[morada completa a definir após registo da empresa]</span>
+          Braga, Portugal
         </p>
       </div>
     </section>

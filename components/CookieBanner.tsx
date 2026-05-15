@@ -2,23 +2,34 @@
 import { useEffect } from 'react'
 import 'vanilla-cookieconsent/dist/cookieconsent.css'
 
+type GTag = (...args: unknown[]) => void
+
+function updateConsent(acceptedCategory: (cat: string) => boolean) {
+  const w = window as Window & { gtag?: GTag }
+  if (typeof w.gtag !== 'function') return
+
+  if (acceptedCategory('analytics')) {
+    w.gtag('consent', 'update', { analytics_storage: 'granted' })
+  }
+  if (acceptedCategory('marketing')) {
+    w.gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+    })
+  }
+}
+
 export default function CookieBanner() {
   useEffect(() => {
     import('vanilla-cookieconsent').then(({ run, acceptedCategory }) => {
-      function syncConsent() {
-        const accepted = acceptedCategory('analytics')
-        if (typeof (window as { updateAnalyticsConsent?: (v: boolean) => void }).updateAnalyticsConsent === 'function') {
-          ;(window as { updateAnalyticsConsent?: (v: boolean) => void }).updateAnalyticsConsent!(accepted)
-        }
-      }
-
       run({
         cookie: { name: 'andaimeslt_consent', expiresAfterDays: 365 },
 
         guiOptions: {
           consentModal: {
-            layout: 'box',
-            position: 'bottom center',
+            layout: 'bar',
+            position: 'bottom',
             equalWeightButtons: true,
             flipButtons: false,
           },
@@ -36,6 +47,11 @@ export default function CookieBanner() {
             readOnly: false,
             autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] },
           },
+          marketing: {
+            enabled: false,
+            readOnly: false,
+            autoClear: { cookies: [{ name: /^_gcl/ }, { name: /^_gads/ }] },
+          },
         },
 
         language: {
@@ -45,15 +61,15 @@ export default function CookieBanner() {
               consentModal: {
                 title: 'Utilizamos cookies',
                 description:
-                  'Utilizamos cookies para garantir o funcionamento do website e, com o seu consentimento, para analisar a utilização. Pode aceitar todas, recusar ou configurar as suas preferências. Mais informação em <a href="/privacidade" class="cc__link">Política de Privacidade</a>.',
+                  'Utilizamos cookies para garantir o funcionamento do website e, com o seu consentimento, para analisar a utilização e melhorar as nossas comunicações. Pode aceitar todas, recusar ou configurar as suas preferências. Mais informação em <a href="/privacidade" class="cc__link">Política de Privacidade</a>.',
                 acceptAllBtn: 'Aceitar todas',
-                acceptNecessaryBtn: 'Recusar todas',
+                acceptNecessaryBtn: 'Rejeitar todas',
                 showPreferencesBtn: 'Preferências',
               },
               preferencesModal: {
                 title: 'Preferências de cookies',
                 acceptAllBtn: 'Aceitar todas',
-                acceptNecessaryBtn: 'Recusar todas',
+                acceptNecessaryBtn: 'Rejeitar todas',
                 savePreferencesBtn: 'Guardar preferências',
                 closeIconLabel: 'Fechar',
                 serviceCounterLabel: 'Serviço|Serviços',
@@ -72,7 +88,7 @@ export default function CookieBanner() {
                   {
                     title: 'Cookies analíticos',
                     description:
-                      'Permitem-nos analisar a utilização do website para melhorar a experiência de navegação. Apenas activados com o seu consentimento.',
+                      'Permitem-nos analisar a utilização do website (Google Analytics 4) para melhorar a experiência de navegação. Apenas activados com o seu consentimento.',
                     linkedCategory: 'analytics',
                     cookieTable: {
                       caption: 'Cookies analíticos',
@@ -80,6 +96,19 @@ export default function CookieBanner() {
                       body: [
                         { name: '_ga',   domain: window.location.hostname, desc: 'Cookie principal do Google Analytics.', expiration: '2 anos' },
                         { name: '_ga_*', domain: window.location.hostname, desc: 'Estado de sessão do Google Analytics 4.', expiration: '2 anos' },
+                      ],
+                    },
+                  },
+                  {
+                    title: 'Cookies de marketing',
+                    description:
+                      'Utilizados para medir o desempenho de campanhas publicitárias (Google Ads). Apenas activados com o seu consentimento.',
+                    linkedCategory: 'marketing',
+                    cookieTable: {
+                      caption: 'Cookies de marketing',
+                      headers: { name: 'Cookie', domain: 'Domínio', desc: 'Descrição', expiration: 'Expiração' },
+                      body: [
+                        { name: '_gcl_au', domain: window.location.hostname, desc: 'Cookie de conversão do Google Ads.', expiration: '90 dias' },
                       ],
                     },
                   },
@@ -93,9 +122,9 @@ export default function CookieBanner() {
           },
         },
 
-        onFirstConsent: syncConsent,
-        onConsent:      syncConsent,
-        onChange:       syncConsent,
+        onFirstConsent: () => updateConsent(acceptedCategory),
+        onConsent:      () => updateConsent(acceptedCategory),
+        onChange:       () => updateConsent(acceptedCategory),
       })
     })
   }, [])

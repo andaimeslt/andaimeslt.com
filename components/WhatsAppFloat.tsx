@@ -1,7 +1,7 @@
 export default function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/351913517713?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20or%C3%A7amento%20de%20andaimes"
+      href="https://wa.me/351913517713?text=Ol%C3%A1%2C%20gostaria%20de%20me%20inscrever%20na%20lista%20de%20espera%20do%20lan%C3%A7amento%20da%20Andaimes%20LT"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"

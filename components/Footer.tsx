@@ -9,7 +9,7 @@ export default function Footer() {
             <Logo variant="light" className="h-10 w-auto mb-3" />
             <p className="text-sm text-white/50 max-w-xs leading-relaxed">
               Aluguer de andaimes em Braga e todo o distrito.<br />
-              NIF: <span className="italic opacity-60">[pendente de configuração]</span>
+              Braga, Portugal
             </p>
           </div>
 

@@ -1,6 +1,8 @@
 'use client'
-import { useActionState } from 'react'
+import { useActionState, useEffect, useState } from 'react'
 import { sendOrcamento, type FormState } from '@/app/actions/sendOrcamento'
+
+type GTag = (...args: unknown[]) => void
 
 const initial: FormState = {}
 
@@ -11,6 +13,23 @@ const labelCls = 'block text-sm font-semibold text-brand-text mb-1.5'
 
 export default function OrcamentoForm() {
   const [state, action, isPending] = useActionState(sendOrcamento, initial)
+  const [tipoValue, setTipoValue]           = useState('')
+  const [localidadeValue, setLocalidadeValue] = useState('')
+
+  useEffect(() => {
+    if (!state.success) return
+    const w = window as Window & { gtag?: GTag }
+    if (typeof w.gtag === 'function') {
+      w.gtag('event', 'generate_lead', {
+        currency: 'EUR',
+        value: 100,
+        form_location: 'reservation_form',
+        equipment_type: tipoValue,
+        region: localidadeValue,
+      })
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.success])
 
   if (state.success) {
     return (
@@ -22,13 +41,12 @@ export default function OrcamentoForm() {
                 <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h2 className="font-heading font-800 text-2xl text-forest mb-3">Pedido recebido!</h2>
+            <h2 className="font-heading font-800 text-2xl text-forest mb-3">Reserva recebida!</h2>
             <p className="text-brand-muted text-lg">
-              Entraremos em contacto em menos de 2 horas.
+              Recebe confirmação por email em breve com o seu código de desconto de 20%.
             </p>
             <p className="text-brand-muted text-sm mt-4">
-              Em caso de urgência, ligue para{' '}
-              <a href="tel:+351913517713" className="text-forest font-semibold">+351 913 517 713</a>
+              Quando arrancarmos a 30 de Junho, contactamo-lo diretamente para coordenar a entrega.
             </p>
           </div>
         </div>
@@ -42,13 +60,13 @@ export default function OrcamentoForm() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block bg-forest/10 text-forest text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-            Orçamento gratuito
+            Lista de espera · Pré-lançamento
           </span>
           <h2 className="font-heading font-800 text-3xl md:text-4xl text-brand-text mb-3">
-            Peça orçamento em 30 segundos
+            Reserve já o seu lugar — 20% desconto garantido
           </h2>
           <p className="text-brand-muted text-lg">
-            Resposta em menos de 2 horas em horário laboral
+            Receba confirmação imediata por email com o seu código de desconto
           </p>
         </div>
 
@@ -76,7 +94,14 @@ export default function OrcamentoForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
               <div>
                 <label htmlFor="tipo" className={labelCls}>Tipo de andaime *</label>
-                <select id="tipo" name="tipo" required className={inputCls} defaultValue="">
+                <select
+                  id="tipo"
+                  name="tipo"
+                  required
+                  className={inputCls}
+                  defaultValue=""
+                  onChange={e => setTipoValue(e.target.value)}
+                >
                   <option value="" disabled>Seleccione o tipo</option>
                   <option value="Europeu">Andaime Europeu</option>
                   <option value="Modular">Andaime Modular</option>
@@ -98,7 +123,15 @@ export default function OrcamentoForm() {
               </div>
               <div>
                 <label htmlFor="localidade" className={labelCls}>Localidade da obra *</label>
-                <input id="localidade" name="localidade" type="text" required placeholder="Ex: Guimarães" className={inputCls} />
+                <input
+                  id="localidade"
+                  name="localidade"
+                  type="text"
+                  required
+                  placeholder="Ex: Guimarães"
+                  className={inputCls}
+                  onChange={e => setLocalidadeValue(e.target.value)}
+                />
               </div>
             </div>
 
@@ -127,10 +160,10 @@ export default function OrcamentoForm() {
               disabled={isPending}
               className="w-full bg-forest text-white font-heading font-700 text-base py-4 rounded-xl hover:bg-forest-mid transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {isPending ? 'A enviar…' : 'Pedir orçamento agora'}
+              {isPending ? 'A enviar…' : 'Reservar lugar com 20% desconto'}
             </button>
             <p className="text-center text-brand-muted text-xs mt-3">
-              ✓ Sem compromisso &nbsp;·&nbsp; Resposta em 2 horas
+              ✓ Sem compromisso &nbsp;·&nbsp; Sem cartão &nbsp;·&nbsp; Cancelamento livre
             </p>
           </form>
         </div>
