@@ -68,20 +68,6 @@ const jsonLd = {
   },
 }
 
-function PreLaunchBanner() {
-  return (
-    <div className="fixed top-0 inset-x-0 z-[60] bg-forest border-b border-white/10 text-white text-center leading-tight px-4 py-2 sm:py-2.5">
-      <span className="sm:hidden text-xs">
-        🚧 Pré-lançamento · <strong>20% desconto</strong> ao reservar
-      </span>
-      <span className="hidden sm:inline text-sm">
-        🚧 Em pré-lançamento — operação arranca a 30 de Junho 2026. Reserve já o seu lugar com{' '}
-        <strong>20% de desconto</strong>.
-      </span>
-    </div>
-  )
-}
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt">
@@ -108,7 +94,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.variable} ${manrope.variable} font-sans antialiased`}>
-        <PreLaunchBanner />
         <Header />
         <main>{children}</main>
         <Footer />
