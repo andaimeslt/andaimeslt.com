@@ -11,7 +11,7 @@ const NAV_LINKS = [
 ]
 
 const WA_URL =
-  'https://wa.me/351913517713?text=Ol%C3%A1%2C%20gostaria%20de%20me%20inscrever%20na%20lista%20de%20espera%20do%20lan%C3%A7amento%20da%20Andaimes%20LT'
+  'https://wa.me/351913517713?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento'
 
 export default function Header() {
   const [menuOpen,  setMenuOpen]  = useState(false)
@@ -27,9 +27,8 @@ export default function Header() {
 
   return (
     <>
-      {/* Header sits below the PreLaunchBanner (top-8 mobile = 32px, sm:top-10 = 40px) */}
       <header
-        className={`fixed top-8 sm:top-10 inset-x-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
             ? 'bg-forest/95 backdrop-blur-md shadow-lg py-3'
             : 'bg-forest py-4'
@@ -71,7 +70,7 @@ export default function Header() {
               href="#orcamento"
               className="bg-white text-forest text-sm font-bold px-4 py-2 rounded-lg hover:bg-white/90 transition-colors"
             >
-              Reservar lugar
+              Pedir Orçamento
             </a>
           </div>
 
@@ -81,8 +80,7 @@ export default function Header() {
             <a
               href="tel:+351913517713"
               className="text-white/40 hover:text-white/70 transition-colors"
-              aria-label="Ligar (disponível a partir do lançamento)"
-              title="Disponível a partir do lançamento"
+              aria-label="Ligar"
             >
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -92,7 +90,7 @@ export default function Header() {
               href="#orcamento"
               className="bg-white text-forest text-xs font-bold px-3 py-2 rounded-lg hover:bg-white/90 transition-colors"
             >
-              Reservar
+              Orçamento
             </a>
             <button
               type="button"
@@ -144,15 +142,12 @@ export default function Header() {
           ))}
 
           <div className="flex flex-col items-center gap-3 mt-4">
-            <span className="text-white/40 text-sm italic">
-              Disponível a partir do lançamento
-            </span>
             <a
               href="#orcamento"
               onClick={closeMenu}
               className="bg-white text-forest font-bold px-8 py-3 rounded-xl text-base"
             >
-              Reservar lugar
+              Pedir Orçamento
             </a>
           </div>
         </div>

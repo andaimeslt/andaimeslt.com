@@ -41,12 +41,12 @@ export default function OrcamentoForm() {
                 <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h2 className="font-heading font-800 text-2xl text-forest mb-3">Reserva recebida!</h2>
+            <h2 className="font-heading font-800 text-2xl text-forest mb-3">Pedido recebido!</h2>
             <p className="text-brand-muted text-lg">
-              Recebe confirmação por email em breve com o seu código de desconto de 20%.
+              Recebe resposta por email em menos de 2 horas em horário laboral.
             </p>
             <p className="text-brand-muted text-sm mt-4">
-              Quando arrancarmos a 30 de Junho, contactamo-lo diretamente para coordenar a entrega.
+              Entraremos em contacto para confirmar disponibilidade e coordenar a entrega.
             </p>
           </div>
         </div>
@@ -60,13 +60,13 @@ export default function OrcamentoForm() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block bg-forest/10 text-forest text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-            Lista de espera · Pré-lançamento
+            Pedido de Orçamento
           </span>
           <h2 className="font-heading font-800 text-3xl md:text-4xl text-brand-text mb-3">
-            Reserve já o seu lugar — 20% desconto garantido
+            Peça o seu orçamento
           </h2>
           <p className="text-brand-muted text-lg">
-            Receba confirmação imediata por email com o seu código de desconto
+            Resposta em menos de 2 horas em horário laboral
           </p>
         </div>
 
@@ -160,10 +160,10 @@ export default function OrcamentoForm() {
               disabled={isPending}
               className="w-full bg-forest text-white font-heading font-700 text-base py-4 rounded-xl hover:bg-forest-mid transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {isPending ? 'A enviar…' : 'Reservar lugar com 20% desconto'}
+              {isPending ? 'A enviar…' : 'Pedir Orçamento'}
             </button>
             <p className="text-center text-brand-muted text-xs mt-3">
-              ✓ Sem compromisso &nbsp;·&nbsp; Sem cartão &nbsp;·&nbsp; Cancelamento livre
+              ✓ Sem compromisso &nbsp;·&nbsp; Resposta em 2 horas &nbsp;·&nbsp; Entrega em 24h
             </p>
           </form>
         </div>

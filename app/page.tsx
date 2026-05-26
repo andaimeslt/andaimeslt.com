@@ -46,23 +46,23 @@ function Hero() {
 
         {/* H1 */}
         <h1 className="font-heading font-800 text-4xl sm:text-5xl lg:text-6xl text-white leading-tight max-w-2xl mb-6">
-          Andaimes LT em breve em Braga.{' '}
-          <em className="not-italic text-white/75">20% de desconto para os primeiros clientes.</em>
+          Aluguer de andaimes em Braga e distrito.{' '}
+          <em className="not-italic text-white/75">Entrega e montagem certificada incluídos.</em>
         </h1>
 
         {/* Subtitle */}
         <p className="text-white/70 text-lg max-w-xl leading-relaxed mb-8">
-          Estamos a preparar o lançamento da Andaimes LT — aluguer flexível de andaimes em Braga e
-          todo o distrito. Reserve já o seu lugar e garanta 20% de desconto na primeira obra.
+          Andaimes europeus, modulares e torres móveis para obras de qualquer dimensão.
+          Transporte e montagem em toda a região. Resposta a orçamentos em menos de 2 horas.
         </p>
 
         {/* Guarantee banner */}
         <div className="inline-flex items-start gap-3 bg-white/10 border border-white/20 rounded-xl px-5 py-4 mb-8 max-w-lg">
           <CheckIcon className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
           <span className="text-white/90 text-sm leading-relaxed">
-            Operação prevista para{' '}
-            <strong className="text-white">30 de Junho 2026</strong>{' '}
-            · Lugares limitados para o desconto de lançamento
+            Entrega em{' '}
+            <strong className="text-white">24 horas</strong>{' '}
+            em Braga cidade · Resposta a orçamentos em menos de 2 horas
           </span>
         </div>
 
@@ -76,10 +76,10 @@ function Hero() {
               <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" />
               </svg>
-              Reservar lugar com 20% desconto
+              Pedir Orçamento
             </a>
             <span className="text-white/50 text-xs mt-2 pl-1">
-              ✓ Sem compromisso · Cancelamento livre · Aviso por email quando arrancarmos
+              ✓ Resposta em 2 horas · Entrega em 24h · Montagem incluída
             </span>
           </div>
           <a
@@ -197,23 +197,23 @@ function Equipamentos() {
 const PASSOS = [
   {
     n: '1',
-    title: 'Reserva',
-    desc: 'Indique o tipo de andaime e detalhes da sua obra prevista. Garanta o seu lugar na lista de espera com 20% desconto.',
+    title: 'Pedido de Orçamento',
+    desc: 'Preencha o formulário com o tipo de andaime, dimensão e datas. Respondemos em menos de 2 horas em horário laboral.',
   },
   {
     n: '2',
     title: 'Confirmação',
-    desc: 'Receba confirmação da sua reserva por email com o seu código de desconto.',
+    desc: 'Receba o orçamento por email e confirme a reserva do material para as datas pretendidas.',
   },
   {
     n: '3',
-    title: 'Aviso de lançamento',
-    desc: 'Quando arrancarmos a 30 de Junho, contactamos-lo diretamente para coordenar a entrega.',
+    title: 'Entrega e Montagem',
+    desc: 'Levamos o material à obra na data combinada. Montagem com pessoal certificado incluída no preço.',
   },
   {
     n: '4',
-    title: 'Entrega e Montagem',
-    desc: 'Após o lançamento, levamos o material à obra na data combinada com montagem certificada incluída.',
+    title: 'Devolução',
+    desc: 'No fim da obra, recolhemos o material. A caução é reembolsada após confirmação do estado do equipamento.',
   },
 ]
 
@@ -292,9 +292,6 @@ function PorqueNos() {
           <h2 className="font-heading font-800 text-3xl md:text-4xl text-white">
             Porquê escolher-nos
           </h2>
-          <p className="text-white/60 mt-4 text-base">
-            Quando arrancarmos a 30 de Junho, esta é a nossa proposta:
-          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -432,10 +429,12 @@ function Contacto() {
               </svg>
             </div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Telefone</p>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Disponível a partir de 30 de Junho 2026<br />
-              <span className="text-white/50 text-xs">Por agora, use o formulário acima</span>
-            </p>
+            <a
+              href="tel:+351913517713"
+              className="text-white font-semibold text-sm hover:text-white/80 transition-colors"
+            >
+              +351 913 517 713
+            </a>
           </div>
 
           {/* WhatsApp */}
@@ -480,7 +479,7 @@ function Contacto() {
               </svg>
             </div>
             <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">Disponibilidade</p>
-            <p className="text-white font-semibold text-sm">Resposta a inscrições em 24h em dias úteis</p>
+            <p className="text-white font-semibold text-sm">Segunda a Sexta, 8h–18h</p>
           </div>
         </div>
 
